@@ -8,6 +8,8 @@ defineProps<{
   routes: string[];
   targets: string[];
   path: Point[];
+  planPath?: Point[];
+  planTarget?: string;
 }>();
 defineEmits<{ cell: [point: Point] }>();
 </script>
@@ -28,6 +30,12 @@ defineEmits<{ cell: [point: Point] }>();
             reachable: routes.includes(key(tile)),
             target: targets.includes(key(tile)),
             trail: path.some((p) => key(p) === key(tile)),
+            'plan-trail': planPath?.some((p) => key(p) === key(tile)),
+            'plan-target':
+              planTarget &&
+              battle.units.some(
+                (u) => u.hp > 0 && u.id === planTarget && key(u) === key(tile),
+              ),
           },
         ]"
         :aria-label="`${tile.x},${tile.y} ${terrainRules[tile.terrain].name}`"
@@ -65,7 +73,7 @@ defineEmits<{ cell: [point: Point] }>();
     </div>
     <div class="map-caption">
       <span>浅滩纵贯南北 · 中央石桥可快速渡河</span
-      ><span>◇ 当前行动　● 可移动　◈ 技能目标</span>
+      ><span>◇ 当前行动　● 可移动　◈ 技能目标　▲ 自动方案路径</span>
     </div>
   </section>
 </template>

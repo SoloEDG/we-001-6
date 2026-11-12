@@ -370,6 +370,14 @@ aside {
 .tile.trail {
   background: #867b47;
 }
+.tile.plan-trail {
+  box-shadow: inset 0 0 0 2px #d9bc76;
+  background: #5a5334;
+}
+.tile.plan-target {
+  box-shadow: inset 0 0 0 3px #e08a5a;
+  background: #74482f;
+}
 .ground {
   position: absolute;
   inset: 0;
@@ -521,6 +529,99 @@ footer {
   padding: 24px 0;
   margin-top: 8px;
   border-top: 1px solid #2d3c32;
+}
+.command-panel .command-toggle button,
+.command-panel .command-actions button {
+  width: 100%;
+}
+.command-panel .command-toggle button.chosen {
+  border-color: #d9bc76;
+  background: #4a3f2a;
+  color: #ecd9a4;
+}
+.budget-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 12px 0;
+  font-size: 11px;
+  color: #93a697;
+}
+.budget-row select {
+  background: #202c29;
+  color: #d6dedb;
+  border: 1px solid #34423c;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font: inherit;
+  font-size: 11px;
+}
+.command-status {
+  font-size: 11px;
+  color: #d7c487;
+  margin: 12px 0 0;
+}
+.command-hint {
+  font-size: 10px;
+  margin: 12px 0 0;
+}
+.plan-card {
+  margin-top: 12px;
+  border: 1px solid #6a5f38;
+  background: #242a1e;
+  padding: 12px;
+}
+.plan-card.stale {
+  border-color: #8a5a48;
+  background: #2c211c;
+}
+.plan-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.plan-head b {
+  color: #ecd9a4;
+  font-size: 12px;
+}
+.plan-head small {
+  color: #8a9a88;
+  font-size: 9px;
+}
+.plan-rationale {
+  font-size: 11px;
+  color: #cfc294;
+  margin: 8px 0;
+}
+.plan-steps {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 10px;
+  color: #a9b8a6;
+}
+.plan-steps li {
+  margin: 4px 0;
+}
+.plan-stale-note {
+  font-size: 10px;
+  color: #e0a08a;
+  margin: 8px 0 0;
+}
+.plan-target {
+  font-size: 10px;
+  color: #e0b98f;
+  margin: 8px 0 0;
+}
+.plan-buttons {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+.plan-buttons button {
+  flex: 1;
+  font-size: 11px;
+  padding: 8px 6px;
 }
 footer b {
   color: #b5a374;

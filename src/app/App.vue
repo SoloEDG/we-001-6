@@ -4,6 +4,7 @@ import { RosterPanel } from "../features/roster";
 import { ActionPanel } from "../features/tactics";
 import { TurnOrder } from "../features/initiative";
 import { ReplayPanel, downloadArchive } from "../features/replay";
+import { AutoCommandPanel } from "../features/command";
 import { key } from "../shared/document";
 import { useWorkspace } from "./workspace";
 const {
@@ -20,6 +21,20 @@ const {
   targets,
   path,
   playback,
+  autoCommand,
+  planBudget,
+  plan,
+  planning,
+  planValid,
+  planPath,
+  planTarget,
+  planTargetName,
+  startPlanning,
+  cancelPlanning,
+  toggleAuto,
+  changeBudget,
+  confirmPlan,
+  dismissPlan,
   cell,
   wait,
   seek,
@@ -73,6 +88,8 @@ const {
           :routes="[...routes.keys()]"
           :targets="targets.map(key)"
           :path="path"
+          :plan-path="planPath"
+          :plan-target="planTarget"
           @cell="cell"
         />
         <div class="field-note">
@@ -84,6 +101,22 @@ const {
         </div>
       </div>
       <aside>
+        <AutoCommandPanel
+          :unit="actor"
+          :auto="autoCommand"
+          :planning="planning"
+          :plan="plan"
+          :plan-valid="planValid"
+          :budget="planBudget"
+          :locked="locked"
+          :target-name="planTargetName"
+          @toggle-auto="toggleAuto"
+          @budget="changeBudget"
+          @plan="startPlanning"
+          @cancel="cancelPlanning"
+          @confirm="confirmPlan"
+          @dismiss="dismissPlan"
+        />
         <ActionPanel
           :unit="actor"
           :skill="skill"
